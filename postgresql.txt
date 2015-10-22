@@ -1,0 +1,10 @@
+src/backend/utils/mmgr/*.c
+
+pool allocator (pool = memory context)
+allows realloc and free on allocated pointers
+also has notion of parent and child contexts, allows cleanup of entire tree of contexts
+also allows attachment of arbitrary fuctions to a memory context that get called before reset/delete (like a c++ distructor)
+
+replacement strategy:
+	keep list of pointers that corespond to each pool, upon pool free free all of those pointers (same as nginx)
+	keep parent, children of each context

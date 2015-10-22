@@ -1,0 +1,35 @@
+src/core/ngx_palloc.{c,h}
+basic architecture
+
+ngx_pool_t               ngx_pool_data_t             (1st chunck of mem for a pool)
++-------------------+   +------------------+         +-------------+
+| ngx_pool_data_t---|---| char       *last-|------|  | ngx_pool_t  |
+| ngx_pool_large_t*-|-| | char       *end--|----| |  | (allocated) |
+| ngx_pool_t* curr  | | | ngx_pool_t *next-|--| | |->| (free)      |
++-------------------+ | +------------------+  | |    | (free)      |
+                      |                       | |--->+-------------+
+                      |   ngx_pool_large_t    |
+                      |  +--------------+     |      (subsiquent chunks)
+                      |->| (this) *next |     |      +-----------------+
+                         | void  *alloc-|-|   |----->| ngx_pool_data_t |
+                         +--------------+ |          |                 |
+                                          |          +-----------------+
+                                          |
+                                          |          (system malloc'd memory)
+                                          |          +------------------+
+                                          |          |                  |
+                                          |          |                  |
+                                          |--------->| (object)         |
+                                                     |                  |
+                                                     +------------------+
+
+notes:
+	larges are things too big for a pool and memaligned objects
+	only larges can be explicitly freed
+	pools are freed all at once
+	all chuncks for a given pool are the same size
+	optimization: curr ptr is moved ahead once a pool has 4 failed allocation requests
+	optimization: all pointers returned are aligned to 16 bytes
+
+replacement strategy:
+	keep list of pointers that corespond to each pool, upon pool free free all of those pointers

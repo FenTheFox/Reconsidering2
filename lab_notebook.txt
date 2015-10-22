@@ -1,0 +1,13 @@
+10-15
+LibMallocTrace
+	used static mmaped buffer to satisfy dlsym's requests before malloc_ptr etc have been initialized
+		this works because the path for RTLD_NEXT does not require an allocation -> probably because libc is already loaded(?)
+	macros are a nice way to avoid duplicated code (decl and init of all func ptrs)
+	sources are stored at /usr/src/debug
+
+10-22
+LibMallocTrace
+	#include <execinfo.h> for programatic backtraces
+	free can be called with a null ptr :(
+
+AllocationProfiler

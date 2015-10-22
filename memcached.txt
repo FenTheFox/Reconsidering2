@@ -1,0 +1,15 @@
+slabs.{c,h}
+Slabs are up to 1MB and are divided into chuncks
+each slab has one chunck size
+chunk size ranges from sizeof(struct item) + sizeof(key) + sizeof(value) to 1/2 maximum slab size growing multiplicitavely by N (chunk sizes are powers of N)
+last slab sz is 1MB
+objects can be allocated and freed
+
+items.c:
+	includes replacement/LRU code
+
+replacement:
+	replacing the alocator itself will be easy, keep track of slab id for allocated pointers
+	only dificulties will be with (prevets simple drop in replacement of slabs.c):
+		maintaining max allocated amount and retuning null once we reach that amout
+		keeping stats for each slab

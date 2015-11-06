@@ -10,4 +10,26 @@ LibMallocTrace
 	#include <execinfo.h> for programatic backtraces
 	free can be called with a null ptr :(
 
+10-29
+	I need to get better at writing this more often/during the work
 AllocationProfiler
+	alarms/signals are evil
+	need to work on spawning a thread for each process the child does
+		stoping a single thread stops all of them in the same process! -> no need to spawn a thread for each thread the process creates
+
+11-5
+	Don't use a macro that aquires a lock after aquiring that same lock
+	thread_local keyword makes things thread local
+	strings exist in c++, either use C or make use of the language features
+AllocationProfiler
+	a SIGCONT should start all threads
+	PTRACE_O_EXITKILL should kill all children when the profiler exits, make sure this works!
+	PTRACE_O_* stops the (new) child thread/proc - either ignore clone, need a way to trace the clone?, or get new thread id and PTRACE_CONT
+	PTRACE_INTERUPT works on procs forked by tracee
+	PTRACE_INTERUPT seems to send SIGSTOP to the imediate child (the one we PTRACE_SIEZE) and SIGTRAP to the forked children (when using a single thread to do all the tracing)
+	[PER THREAD] in order to wait on a non-child you have to PTRACE_ATTACH or PTRACE_SIEZE it first
+
+	Tried making it multithreaded, realized that was not not a great idea until I had a working single threaded loop
+	Made a working single threaded loop, was a little awkward
+	from that it was easy to make it multithreaded again (one thread per traced process)
+	TODO: finish sampling comilation and test it

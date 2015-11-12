@@ -1,0 +1,15 @@
+[submodule "lib/Hoard"]
+	path = lib/Hoard
+	url = https://github.com/emeryberger/Hoard
+[submodule "lib/gperftools"]
+	path = lib/gperftools
+	url = https://github.com/gperftools/gperftools
+[submodule "lib/jemalloc"]
+	path = lib/jemalloc
+	url = https://github.com/jemalloc/jemalloc
+[submodule "bin/memcached"]
+	path = bin/memcached
+	url = https://github.com/memcached/memcached
+[submodule "bin/postgresql"]
+	path = bin/postgresql
+	url = git://git.postgresql.org/git/postgresql.git

@@ -33,3 +33,6 @@ AllocationProfiler
 	Made a working single threaded loop, was a little awkward
 	from that it was easy to make it multithreaded again (one thread per traced process)
 	TODO: finish sampling comilation and test it
+
+11-12
+	use git submodule update --init if didn't use pull --recursive

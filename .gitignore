@@ -1,1 +1,4 @@
+bin/firefox
 bin/nginx
+bin/sqlite
+bin/sqlite-bld

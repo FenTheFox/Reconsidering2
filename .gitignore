@@ -1,4 +1,5 @@
-bin/firefox
-bin/nginx
-bin/sqlite
-bin/sqlite-bld
+src/firefox
+src/firefox-bld
+src/nginx
+src/sqlite
+src/sqlite-bld

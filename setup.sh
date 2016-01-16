@@ -1,5 +1,3 @@
 #!/bin/bash
-cd bin
-./setup.sh
-cd ../lib
+cd src
 ./setup.sh

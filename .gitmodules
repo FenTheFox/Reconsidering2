@@ -1,18 +1,18 @@
 [submodule "lib/Hoard"]
-	path = lib/Hoard
+	path = src/Hoard
 	url = https://github.com/emeryberger/Hoard
 [submodule "lib/gperftools"]
-	path = lib/gperftools
+	path = src/gperftools
 	url = https://github.com/gperftools/gperftools
 [submodule "lib/jemalloc"]
-	path = lib/jemalloc
+	path = src/jemalloc
 	url = https://github.com/jemalloc/jemalloc
 [submodule "bin/memcached"]
-	path = bin/memcached
+	path = src/memcached
 	url = https://github.com/memcached/memcached
 [submodule "bin/postgresql"]
-	path = bin/postgresql
+	path = src/postgresql
 	url = git://git.postgresql.org/git/postgresql.git
 [submodule "lib/LibMallocTrace"]
-	path = lib/LibMallocTrace
+	path = src/LibMallocTrace
 	url = https://github.com/timm-allman/LibMallocTrace

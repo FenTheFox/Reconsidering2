@@ -1,6 +1,6 @@
 # Define where build files should go. This places them in the directory
 # "obj-ff-dbg" under the current source directory
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/../firefox-bld-rmalloc
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/../firefox-bld
 
 # -s makes builds quieter by default
 # -j4 allows 4 tasks to run in parallel. Set the number to be the amount of

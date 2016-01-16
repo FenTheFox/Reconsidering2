@@ -25,7 +25,6 @@
 
 #include "sqlite3.h"
 
-// #include "time.h"
 #include "stringops.h"
 
 int checkErr(int err, int line, sqlite3 *db=NULL, std::string extra="");

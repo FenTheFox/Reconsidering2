@@ -16,3 +16,6 @@
 [submodule "lib/LibMallocTrace"]
 	path = src/LibMallocTrace
 	url = https://github.com/timm-allman/LibMallocTrace
+[submodule "src/AllocationProfiler"]
+	path = src/AllocationProfiler
+	url = git@github.com:timm-allman/AllocationProfiler.git

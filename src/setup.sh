@@ -13,6 +13,8 @@ fossil update tag:release
 cd $SRC_DIR/firefox
 cp ../.mozconfig .
 hg tags -T '{tag}\n' | grep -E -m1 "FIREFOX(_|\w)*RELEASE" | hg checkout
+./mach
+./mach mercurial-setup
 ./mach bootstrap
 ./mach build
 $SRC_DIR/firefox-bld/dist/bin/firefox -no-remote -CreateProfile jsbench

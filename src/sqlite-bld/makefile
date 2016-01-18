@@ -28,7 +28,7 @@ sqlite3-mem5-128: sqlite3_mem5.o $(OBJS)
 	$(CXX) $(CPPFLAGS) $(MEM_LG) -o $@ $^
 
 Makefile:
-	../sqlite/config
+	../sqlite/configure
 
 sqlite3.c: Makefile
 	make -f Makefile sqlite3.c
